@@ -16,26 +16,3 @@ article p {
     color:#ccc;
 }
 
-article button {
-    font-weight: 800;
-    background-color: #dfdf41;
-    color:#555;
-    padding:4px 8px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    margin-inline: auto 0;
-    display: block;
-    transition: 0.3s;
-}
-
-article button:hover {
-    color: #dfdf41 ;
-    background-color: #555;
-}
-
-
-article button:active {
-    color: #fff ;
-    background-color: #555;
-}

@@ -27,7 +27,7 @@ form p input,form p textarea {
     width:100%;
     max-width: 100%;
 }
-
+/* 
 form p button {
     font-weight: 800;
     background-color: #dfdf41;
@@ -50,4 +50,4 @@ form p button:hover {
 form p button:active {
     color: #fff ;
     background-color: #555;
-}
+} */
