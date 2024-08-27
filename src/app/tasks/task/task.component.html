@@ -1,0 +1,13 @@
+<div>
+  @for (task of tasks; track task.id) {
+  <article>
+    <h5>
+      title <span>{{ task.timeStamp }}</span>
+    </h5>
+    <p>{{ task.title }}</p>
+    <h5>description</h5>
+    <p>{{ task.description }}</p>
+    <button (click)="removeTask(task.id)">Delete task!</button>
+  </article>
+  }
+</div>

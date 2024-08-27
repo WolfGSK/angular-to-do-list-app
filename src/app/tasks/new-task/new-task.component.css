@@ -1,0 +1,53 @@
+form {
+    border: 1px solid #dfdf41;
+    max-width: 400px;
+    margin:auto;
+    border-radius: 16px;
+}
+
+form p {
+    margin-inline:5%;
+}
+
+form p label{
+    display: block;
+    color:#dfdf41;
+    font-size: 14px;
+    font-weight: 800;
+    margin-block: 6px;
+    width:100%;
+}
+
+form p input,form p textarea {
+    border-radius: 8px;
+    padding:8px 12px;
+    background-color: #ccc;
+    color:#555;
+    font-weight: 800;
+    width:100%;
+    max-width: 100%;
+}
+
+form p button {
+    font-weight: 800;
+    background-color: #dfdf41;
+    color:#555;
+    padding:4px 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-inline: auto 0;
+    display: block;
+    transition: 0.3s;
+}
+
+form p button:hover {
+    color: #dfdf41 ;
+    background-color: #555;
+}
+
+
+form p button:active {
+    color: #fff ;
+    background-color: #555;
+}
