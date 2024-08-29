@@ -6,7 +6,6 @@ import { Tasks } from './tasks.model';
 })
 export class TasksService {
 
-  // Initialize the tasks signal with initial value
   private tasks = signal<Tasks[]>([{
     title: 'Time to test services',
     description: 'This is an attempt to create a service component',
