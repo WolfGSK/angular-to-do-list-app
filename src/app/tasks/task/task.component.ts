@@ -1,22 +1,27 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input,  } from '@angular/core';
 import { TasksService } from '../tasks.service';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { FormsModule } from '@angular/forms';
+import { Tasks } from '../tasks.model';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, FormsModule],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.css'
+  styleUrls: ['./task.component.css'] // Corrected to styleUrls
 })
 export class TaskComponent {
-  private TasksService = inject(TasksService);
   
-  tasks = this.TasksService.tasks;
+  task = input.required<Tasks>()
 
-  removeTask(id:string) {
-    this.TasksService.onRemoveTask(id);
-    this.tasks = this.TasksService.tasks;
+  private tasksService = inject(TasksService);
+
+  removeTask(id: string) {
+    this.tasksService.onRemoveTask(id);
   }
 
+  updateTask(taskId: string, newStatus:'open' | 'in-progress' | 'complete') { 
+    this.tasksService.onUpdateTask(taskId, newStatus);
+  }
 }

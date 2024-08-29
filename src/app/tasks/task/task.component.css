@@ -1,18 +1,40 @@
-article {
+
+li {
     margin:auto;
     max-width: 500px;
     background-color: #292929;
     padding:16px;
     margin-block: 16px;
     border-radius: 16px;
+    list-style: none;
 }
-article h5 {
+li h5 {
     color:#dfdf41;
     display: flex;
     justify-content: space-between;
 }
 
-article p {
+li p {
     color:#ccc;
 }
 
+li form {
+    text-align: right;
+    margin-block:8px
+}
+
+li form select {
+    background: #311a1a;
+    font-size: 12px;
+    border: 1px solid #dfdf41;
+    color: #dfdf41;
+    border-radius: 6px;
+}
+
+li form button {
+    font-size: 12px;
+    background-color:transparent ;
+    color: #dfdf41;
+    border:none;
+    cursor: pointer;
+}

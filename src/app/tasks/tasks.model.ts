@@ -1,6 +1,7 @@
 export interface Tasks  {
+    id:string,
     title:string,
     description:string,
-    id:string,
-    timeStamp:string
+    timeStamp:string,
+    status: 'open' | 'in-progress' | 'complete'
 }

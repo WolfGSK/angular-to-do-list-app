@@ -1,1 +1,7 @@
-<app-new-task /> <app-task />
+<app-new-task />
+
+<ul>
+  @for (task of tasks; track task.id) {
+  <app-task [task]="task" />
+  }
+</ul>
