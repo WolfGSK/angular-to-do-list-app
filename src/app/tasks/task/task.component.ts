@@ -9,7 +9,7 @@ import { Tasks } from '../tasks.model';
   standalone: true,
   imports: [ButtonComponent, FormsModule],
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'] // Corrected to styleUrls
+  styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
   
