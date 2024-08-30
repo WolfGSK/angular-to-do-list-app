@@ -7,9 +7,9 @@ li {
     margin-block: 16px;
     border-radius: 16px;
     list-style: none;
+    transition: 0.3s;
 }
 li h5 {
-    color:#dfdf41;
     display: flex;
     justify-content: space-between;
 }
@@ -26,15 +26,62 @@ li form {
 li form select {
     background: #311a1a;
     font-size: 12px;
-    border: 1px solid #dfdf41;
-    color: #dfdf41;
     border-radius: 6px;
+    transition: 0.3s;
 }
 
 li form button {
     font-size: 12px;
     background-color:transparent ;
-    color: #dfdf41;
     border:none;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+
+li.status-open {
+    color: #dfdf41;
+}
+
+li.status-open form select {
+    border: 1px solid #dfdf41;
+    color: #dfdf41;
+}
+li.status-open form button {
+    color: #dfdf41;
+}
+li.status-compopenlete button {
+    background-color: #dfdf41 ;
+}
+
+li.status-in-progress {
+    color: #2abfda;
+}
+li.status-in-progress form select {
+    border: 1px solid #2abfda;
+    color: #2abfda;
+}
+li.status-in-progress form button {
+    color: #2abfda;
+}
+li.status-in-progress button {
+    background-color: #2abfda ;
+}
+
+li.status-complete {
+    color: #a22ada;
+}
+li.status-complete form select {
+    border: 1px solid #a22ada;
+    color: #a22ada;
+}
+li.status-complete form button {
+    color: #a22ada;
+}
+li.status-complete button {
+    background-color: #a22ada ;
+}
+
+li button:hover {
+    background-color: #555;
 }

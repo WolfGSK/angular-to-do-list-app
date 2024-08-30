@@ -1,7 +1,7 @@
 :host {
     font-weight: 800;
     background-color: #dfdf41;
-    color:#555;
+    color:#2e2d2d;
     padding:4px 8px;
     border-radius: 8px;
     border: none;
@@ -12,8 +12,7 @@
 }
 
 :host:hover {
-    color: #dfdf41 ;
-    background-color: #555;
+    color: #fff ;
 }
 
 :host:active {

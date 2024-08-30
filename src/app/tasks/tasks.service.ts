@@ -1,12 +1,11 @@
 import { Injectable, signal } from '@angular/core';
-import { Tasks } from './tasks.model';
+import { Tasks, TaskStatus } from './tasks.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
 
-  // Initialize the tasks signal with initial value
   private tasks = signal<Tasks[]>([{
     title: 'Time to test services',
     description: 'This is an attempt to create a service component',
@@ -49,7 +48,10 @@ export class TasksService {
     this.saveTasks();
   }
 
-  onUpdateTask(taskId: string, newStatus: 'open' | 'in-progress' | 'complete') {
+  onUpdateTask(taskId: string, newStatus: TaskStatus) {
     console.log(taskId, newStatus);
+    this.tasks.update((tasks) => tasks.map((task) => task.id === taskId ? { ...task,status: newStatus} : task));
+    console.log(this.tasks())
+    this.saveTasks();
   }
 }

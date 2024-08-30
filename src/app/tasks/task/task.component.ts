@@ -2,7 +2,7 @@ import { Component, inject, input,  } from '@angular/core';
 import { TasksService } from '../tasks.service';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { FormsModule } from '@angular/forms';
-import { Tasks } from '../tasks.model';
+import { Tasks, TaskStatus } from '../tasks.model';
 
 @Component({
   selector: 'app-task',
@@ -21,7 +21,12 @@ export class TaskComponent {
     this.tasksService.onRemoveTask(id);
   }
 
-  updateTask(taskId: string, newStatus:'open' | 'in-progress' | 'complete') { 
-    this.tasksService.onUpdateTask(taskId, newStatus);
+  updateTask(taskId: string, newStatus: string) {
+    const validStatuses: TaskStatus[] = ['open', 'in-progress', 'complete'];
+    if (validStatuses.includes(newStatus as TaskStatus)) {
+      this.tasksService.onUpdateTask(taskId, newStatus as TaskStatus);
+    } else {
+      console.error(`Invalid status: ${newStatus}`);
+    }
   }
 }

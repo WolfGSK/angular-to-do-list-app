@@ -1,4 +1,10 @@
-<li>
+<li
+  [class]="{
+    'status-open': task().status === 'open',
+    'status-in-progress': task().status === 'in-progress',
+    'status-complete': task().status === 'complete'
+  }"
+>
   <h5>
     title <span>{{ task().timeStamp }}</span>
   </h5>
@@ -6,14 +12,13 @@
   <h5>description</h5>
   <p>{{ task().description }}</p>
 
-  <form (ngSubmit)="updateTask(task().id, task().status)">
-    <select name="action" #statusSelect>
-      <option [value]="'open'">Open</option>
-      <option [value]="'in-progress'">In progress</option>
-      <option [value]="'complete'">complete</option>
+  <form (ngSubmit)="updateTask(task().id, status.value)">
+    <select [ngModel]="task().status" name="action" #status>
+      <option value="open">Open</option>
+      <option value="in-progress">In progress</option>
+      <option value="complete">Complete</option>
     </select>
-    <button>Update</button>
+    <button type="submit">Update</button>
   </form>
-
   <button (click)="removeTask(task().id)" appButton>Delete task!</button>
 </li>
