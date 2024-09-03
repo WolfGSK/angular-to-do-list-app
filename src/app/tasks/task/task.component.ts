@@ -2,20 +2,22 @@ import { Component, inject, input,  } from '@angular/core';
 import { TasksService } from '../tasks.service';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { FormsModule } from '@angular/forms';
-import { Tasks, TaskStatus } from '../tasks.model';
+import { TASK_STATUS_OPTIONS, Tasks, TaskStatus, taskStatusOptions, taskStatusOptionsProvider } from '../tasks.model';
 
 @Component({
   selector: 'app-task',
   standalone: true,
   imports: [ButtonComponent, FormsModule],
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'] // Corrected to styleUrls
+  styleUrls: ['./task.component.css'],
+  providers: [taskStatusOptionsProvider]
 })
 export class TaskComponent {
   
   task = input.required<Tasks>()
 
   private tasksService = inject(TasksService);
+  taskStatusOptions = inject(TASK_STATUS_OPTIONS)
 
   removeTask(id: string) {
     this.tasksService.onRemoveTask(id);
@@ -28,5 +30,8 @@ export class TaskComponent {
     } else {
       console.error(`Invalid status: ${newStatus}`);
     }
+  }
+  expandTask(status:boolean,taskId:string) {
+    this.tasksService.onExpandTask(status,taskId);
   }
 }

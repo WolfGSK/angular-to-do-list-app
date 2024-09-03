@@ -9,38 +9,70 @@ li {
     list-style: none;
     transition: 0.3s;
 }
+
 li h5 {
     display: flex;
     justify-content: space-between;
+    margin-block:16px
+}
+
+li h5 button {
+    border:none;
+    background-color: transparent;
+    color:inherit;
+    cursor: pointer;
 }
 
 li p {
     color:#ccc;
 }
 
-li form {
+li div.description {
+    height:0;
+    overflow: hidden;
+}
+li div.description.expand {
+    height:auto
+}
+
+li div:not(.description) {
+    display:flex;
+    justify-content: space-between;
+}
+
+li div form {
     text-align: right;
     margin-block:8px
 }
 
-li form select {
+li div form select {
     background: #311a1a;
     font-size: 12px;
     border-radius: 6px;
     transition: 0.3s;
 }
 
-li form button {
+li div form button {
     font-size: 12px;
     background-color:transparent ;
     border:none;
     cursor: pointer;
     transition: 0.3s;
+   
+}
+
+li div button {
+    margin: auto 0;
+}
+
+li h5.time-stamp {
+    margin:0
 }
 
 
 li.status-open {
     color: #dfdf41;
+    border-left:8px solid #dfdf41
 }
 
 li.status-open form select {
@@ -56,6 +88,7 @@ li.status-compopenlete button {
 
 li.status-in-progress {
     color: #2abfda;
+    border-left:8px solid #2abfda
 }
 li.status-in-progress form select {
     border: 1px solid #2abfda;
@@ -70,6 +103,7 @@ li.status-in-progress button {
 
 li.status-complete {
     color: #a22ada;
+    border-left:8px solid #a22ada
 }
 li.status-complete form select {
     border: 1px solid #a22ada;

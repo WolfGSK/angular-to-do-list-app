@@ -28,6 +28,10 @@ form p input,form p textarea {
     max-width: 100%;
 }
 
+form p button {
+    margin-inline: auto 0;
+}
+
 button:hover {
     background-color: #555 ;
 }

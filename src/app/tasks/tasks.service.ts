@@ -11,7 +11,8 @@ export class TasksService {
     description: 'This is an attempt to create a service component',
     id: '0',
     timeStamp: new Date().toLocaleString(),
-    status: 'open'
+    status: 'open',
+    isExpand: false
   }]);
 
   constructor() { 
@@ -36,7 +37,8 @@ export class TasksService {
       ...taskData,
       id: randomId,
       timeStamp: timeStamp,
-      status: 'open'
+      status: 'open',
+      isExpand: false
     };
 
     this.tasks.update((oldTasks) => [newTask,...oldTasks ]);
@@ -49,9 +51,13 @@ export class TasksService {
   }
 
   onUpdateTask(taskId: string, newStatus: TaskStatus) {
-    console.log(taskId, newStatus);
     this.tasks.update((tasks) => tasks.map((task) => task.id === taskId ? { ...task,status: newStatus} : task));
-    console.log(this.tasks())
+    this.saveTasks();
+  }
+
+  onExpandTask(expandTask:boolean,taskId:string) {
+    expandTask = !expandTask;
+    this.tasks.update((tasks) => tasks.map((task) =>taskId === task.id ? {...task,isExpand: expandTask}: task))
     this.saveTasks();
   }
 }

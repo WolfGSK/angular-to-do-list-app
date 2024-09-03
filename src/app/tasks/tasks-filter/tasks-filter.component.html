@@ -1,1 +1,16 @@
-<p>tasks-filter works!</p>
+<div
+  [class]="{
+    '': filter.value === 'all',
+    'selected-open': filter.value === 'open',
+    'selected-in-progress': filter.value === 'in-progress',
+    'selected-complete': filter.value === 'complete'
+  }"
+>
+  <h4>Select filter</h4>
+  <select (change)="changeTaskFilter(filter.value)" #filter>
+    <option value="all">All</option>
+    @for (option of taskStatusOptions; track option.value) {
+    <option [value]="option.value">{{ option.text }}</option>
+    }
+  </select>
+</div>

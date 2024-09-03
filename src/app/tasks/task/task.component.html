@@ -2,23 +2,38 @@
   [class]="{
     'status-open': task().status === 'open',
     'status-in-progress': task().status === 'in-progress',
-    'status-complete': task().status === 'complete'
+    'status-complete': task().status === 'complete',
   }"
 >
   <h5>
-    title <span>{{ task().timeStamp }}</span>
+    title @if(task().isExpand) {
+    <button (click)="expandTask(task().isExpand, task().id)">minimize</button>
+    } @else {
+    <button (click)="expandTask(task().isExpand, task().id)">expand</button>
+    }
   </h5>
   <p>{{ task().title }}</p>
-  <h5>description</h5>
-  <p>{{ task().description }}</p>
+  <div
+    class="description"
+    [class]="{
+      expand: task().isExpand === true,
+      '': task().isExpand === false
+    }"
+  >
+    <h5>description</h5>
+    <p>{{ task().description }}</p>
+  </div>
 
-  <form (ngSubmit)="updateTask(task().id, status.value)">
-    <select [ngModel]="task().status" name="action" #status>
-      <option value="open">Open</option>
-      <option value="in-progress">In progress</option>
-      <option value="complete">Complete</option>
-    </select>
-    <button type="submit">Update</button>
-  </form>
-  <button (click)="removeTask(task().id)" appButton>Delete task!</button>
+  <div>
+    <form (ngSubmit)="updateTask(task().id, status.value)">
+      <select [ngModel]="task().status" name="action" #status>
+        @for (option of taskStatusOptions; track option.value) {
+        <option [value]="option.value">{{ option.text }}</option>
+        }
+      </select>
+      <button type="submit">Update</button>
+    </form>
+    <button (click)="removeTask(task().id)" appButton>Delete task!</button>
+  </div>
+  <h5 class="time-stamp">{{ task().timeStamp }}</h5>
 </li>
