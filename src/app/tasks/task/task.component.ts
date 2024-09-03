@@ -9,8 +9,7 @@ import { TASK_STATUS_OPTIONS, Tasks, TaskStatus, taskStatusOptions, taskStatusOp
   standalone: true,
   imports: [ButtonComponent, FormsModule],
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'],
-  providers: [taskStatusOptionsProvider]
+  styleUrls: ['./task.component.css'] // Corrected to styleUrls
 })
 export class TaskComponent {
   
